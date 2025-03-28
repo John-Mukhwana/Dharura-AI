@@ -112,3 +112,159 @@ graph TD
 - **Severity Assessment:** Get an AI-assessed urgency level (Urgent, Moderate, Low) for each situation.
 - **Multilingual Support:** Access guidance in languages like English, Spanish, Swahili, Arabic, and more.
 - **Responsive Design:** Seamless experience across various devices.
+
+## System Architecture
+
+```mermaid
+---
+title: Dharura.AI System Architecture
+---
+
+sequenceDiagram
+    participant User as 👤 User
+    participant Frontend as 🎨 Frontend (React.js)
+    participant Backend as 🌐 Backend (Friendli.ai API)
+    participant AIEngine as 🤖 AI Engine (Llama 3.3 70B)
+    participant Fallback as ⚠️ Fallback Response Logic
+    participant Database as 🗄️ Database (Storage)
+
+    User->>Frontend: 🟦 1. Describes emergency
+    Frontend->>Backend: 🟦 2. Sends emergency & language request
+    Backend->>AIEngine: 🟩 3. Forwards request to AI model
+    AIEngine-->>Backend: 🟩 4. Returns guidance (severity, steps, language)
+    Backend->>Frontend: 🟦 5. Processes response and sends guidance
+    alt Error occurs
+        Backend->>Fallback: 🟥 6. Triggers fallback response
+        Fallback-->>Backend: 🟥 7. Returns fallback guidance
+    end
+    Backend->>Database: 🟪 8. Stores guidance results
+    Database-->>Backend: 🟪 9. Retrieves stored guidance data
+    Backend->>Frontend: 🟦 10. Sends processed guidance to frontend
+    Frontend->>User: 🟦 11. Displays guidance and severity
+
+    note over Backend,AIEngine: 🟩 Secure API Communication
+    note over Backend,Database: 🟪 Stores guidance for future reference
+    note over Frontend: 🟦 Allows users to ask follow-ups
+```
+---
+
+### Component Architecture
+
+```mermaid
+---
+title: Dharura.AI Component Architecture
+---
+
+graph TD
+    subgraph Frontend["🎨 Frontend (React.js)"]
+        UI["🖥️ UI Components"]
+        Router["🛤️ React Router DOM"]
+        APIHandler["🔄 API Handler"]
+    end
+
+    subgraph Backend["🌐 Backend (Friendli.ai API)"]
+        AuthServer["🔐 Authentication Server"]
+        API["📡 API Gateway"]
+        Logic["⚙️ Business Logic"]
+        ModelHandler["🤖 AI Model Handler"]
+    end
+
+    subgraph AIEngine["🧠 AI Engine (Llama 3.3 70B)"]
+        NLPModel["📊 NLP Processing"]
+        ResponseGen["📝 Response Generation"]
+    end
+
+    subgraph Fallback["⚠️ Fallback Logic"]
+        DefaultResponse["🔄 Default Guidance"]
+    end
+
+    subgraph Database["🗄️ Database (Storage)"]
+        Reviews["📑 Guidance Records"]
+        Logs["📜 User Logs"]
+    end
+
+    %% Arrows and Connections
+    UI -->|User Input| Router
+    Router --> APIHandler
+    APIHandler -->|Sends Requests| API
+
+    API -->|Authenticates| AuthServer
+    AuthServer --> API
+
+    API -->|Processes Requests| Logic
+    Logic --> ModelHandler
+    ModelHandler -->|Sends request| NLPModel
+    NLPModel -->|Generates guidance| ResponseGen
+    ResponseGen --> ModelHandler
+    ModelHandler --> API
+    API --> APIHandler
+    APIHandler --> UI
+
+    Logic -->|Error Handling| Fallback
+    Fallback --> DefaultResponse
+    DefaultResponse --> API
+
+    API -->|Store Guidance| Reviews
+    API -->|Log Data| Logs
+
+    %% Coloring
+    classDef frontend fill:#bbdefb,stroke:#1976d2,stroke-width:2px;
+    classDef backend fill:#ffcdd2,stroke:#c62828,stroke-width:2px;
+    classDef ai fill:#c8e6c9,stroke:#388e3c,stroke-width:2px;
+    classDef fallback fill:#ffe082,stroke:#ff8f00,stroke-width:2px;
+    classDef database fill:#b2dfdb,stroke:#00796b,stroke-width:2px;
+
+    class Frontend frontend
+    class Backend backend
+    class AIEngine ai
+    class Fallback fallback
+    class Database database
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js and npm installed on your machine.
+- A Friendli.ai API token
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/John-Mukhwana/Dharura.AI.git
+cd dharura-ai
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+
+## Environment Setup
+
+Create a .env file in the root directory and add your Hugging Face API token:
+
+```env
+VITE_HUGGINGFACE_TOKEN=your-hugging-face-api-token
+```
+
+
+**Start the development server:**
+```bash
+npm run dev
+```
+--- 
+
+## Usage
+1. Navigate to the chat interface on the landing page or /chat route.
+2. Describe your medical emergency in the input field and select your language.
+3. Review the step-by-step First Aid guidance and severity assessment.
+4. Follow the provided steps or ask follow-up questions as needed.
+5. Use the guidance to address the emergency or seek professional help if advised.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you have any suggestions or improvements.
