@@ -6,7 +6,7 @@ Dharura.AI is an AI-powered First Aid assistant designed to provide instant medi
 
 ## Live Links🌐📶
 
-- **🚀Live Link on Vercel:**
+- **🚀Live Link on Vercel:** https://dharura-ai.vercel.app/chat
 - **🛠️Github Link:** https://github.com/John-Mukhwana/Dharura.AI.git 
 
 --- 
