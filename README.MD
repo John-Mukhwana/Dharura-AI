@@ -105,3 +105,10 @@ graph TD
   10. The API forwards these queries to the Llama 3.3 70B instruct model.
   11. The model returns updated guidance to the Friendli.ai API.
   12. The API sends the updated guidance back to the frontend.
+
+
+  ## Features
+- **First Aid Guidance:** Receive clear, step-by-step instructions for handling medical emergencies.
+- **Severity Assessment:** Get an AI-assessed urgency level (Urgent, Moderate, Low) for each situation.
+- **Multilingual Support:** Access guidance in languages like English, Spanish, Swahili, Arabic, and more.
+- **Responsive Design:** Seamless experience across various devices.
