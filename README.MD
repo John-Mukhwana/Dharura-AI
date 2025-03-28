@@ -80,10 +80,10 @@ graph TD
     class API backend
     class Llama aiEngine
     class Severity,Guidance,LangDetect,ErrorHandler responseHandler
-    
+
 ```
 
-    ### Explanation:
+### Explanation:
 
 - **User**: The user interacts with the application.
  - **Language**: The user selects the language to request for first aid from.
@@ -94,9 +94,10 @@ graph TD
 - **Llama 3.3 70B Instruct Model (Hugging Face)**: The pretrained model hosted by Hugging Face that analyzes and refines the code.
 
 - **Flow**:
+
   1. The User Selcts lanuage in which they want to as First Aid from.
   2. The user describes their emergency through the frontend chat interface.
-  3.The frontend sends the emergency details to the Friendli.ai API.
+  3. The frontend sends the emergency details to the Friendli.ai API.
   4. The Friendli.ai API forwards the request to the Llama 3.3 70B instruct model.
   5. The model returns First Aid guidance and a severity assessment to the Friendli.ai API.
   6. The Friendli.ai API sends the guidance back to the frontend.
