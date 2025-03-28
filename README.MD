@@ -82,6 +82,7 @@ graph TD
     class Severity,Guidance,LangDetect,ErrorHandler responseHandler
 
 ```
+--- 
 
 ### Explanation:
 
@@ -93,9 +94,11 @@ graph TD
 - **Friendli.ai API**: The API that sends the emergency description to the Llama 3.3 70B instruct model for processing.
 - **Llama 3.3 70B Instruct Model (Hugging Face)**: The pretrained model hosted by Hugging Face that analyzes and refines the code.
 
+---
+
 - **Flow**:
 
-  1. The User Selcts lanuage in which they want to as First Aid from.
+  1. The User Selcts language in which they want to as First Aid from.
   2. The user describes their emergency through the frontend chat interface.
   3. The frontend sends the emergency details to the Friendli.ai API.
   4. The Friendli.ai API forwards the request to the Llama 3.3 70B instruct model.
@@ -108,12 +111,16 @@ graph TD
   11. The model returns updated guidance to the Friendli.ai API.
   12. The API sends the updated guidance back to the frontend.
 
+---
 
   ## Features
 - **First Aid Guidance:** Receive clear, step-by-step instructions for handling medical emergencies.
 - **Severity Assessment:** Get an AI-assessed urgency level (Urgent, Moderate, Low) for each situation.
 - **Multilingual Support:** Access guidance in languages like English, Spanish, Swahili, Arabic, and more.
 - **Responsive Design:** Seamless experience across various devices.
+
+---
+
 
 ## System Architecture
 
@@ -232,6 +239,8 @@ graph TD
 - Node.js and npm installed on your machine.
 - A Friendli.ai API token
 
+---
+
 ### Installation
 
 1. Clone the repository:
@@ -244,6 +253,7 @@ cd dharura-ai
 ```bash
 npm install
 ```
+---
 
 
 ## Environment Setup
@@ -267,6 +277,8 @@ npm run dev
 3. Review the step-by-step First Aid guidance and severity assessment.
 4. Follow the provided steps or ask follow-up questions as needed.
 5. Use the guidance to address the emergency or seek professional help if advised.
+
+---
 
 ## Contributing
 
