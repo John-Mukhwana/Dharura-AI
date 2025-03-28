@@ -80,10 +80,11 @@ graph TD
     class API backend
     class Llama aiEngine
     class Severity,Guidance,LangDetect,ErrorHandler responseHandler
-
-    ```
+    
+```
 
     ### Explanation:
+
 - **User**: The user interacts with the application.
  - **Language**: The user selects the language to request for first aid from.
 - **Frontend (React.js)**: The frontend of the application built using React.js.
@@ -219,6 +220,7 @@ graph TD
     class AIEngine ai
     class Fallback fallback
     class Database database
+
 ```
 
 ---
