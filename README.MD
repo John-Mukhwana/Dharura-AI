@@ -7,7 +7,6 @@ Dharura.AI is an AI-powered First Aid assistant designed to provide instant medi
 ## Live Links🌐📶
 
 - **🚀Live Link on Vercel:** https://dharura-ai.vercel.app/chat
-- **🛠️Github Link:** https://github.com/John-Mukhwana/Dharura.AI.git 
 
 --- 
 
@@ -245,7 +244,7 @@ graph TD
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/John-Mukhwana/Dharura.AI.git
+git clone https://github.com/
 cd dharura-ai
 ```
 
@@ -258,11 +257,8 @@ npm install
 
 ## Environment Setup
 
-Create a .env file in the root directory and add your Hugging Face API token:
+Create a .env file in the root directory
 
-```env
-VITE_HUGGINGFACE_TOKEN=your-hugging-face-api-token
-```
 
 
 **Start the development server:**
